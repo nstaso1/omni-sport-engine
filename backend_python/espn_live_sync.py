@@ -1,29 +1,30 @@
-import pandas as pd
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import json
-import statsmodels.api as sm
+import os
 
-# 1. Load the exported JSON database from the Mystics Dashboard
-print("Loading Mystics Analytics Database...")
-with open('MysticsAnalytics_Save.json', 'r') as file:
-    data = json.load(file)
+app = Flask(__name__)
+CORS(app)
 
-# 2. Extract Pickleball Data (Combining Minor League and Pro League for a larger sample)
-pbl_minor = data['masterDB']['minor']['pbl']
-pbl_pro = data['masterDB']['proleague']['pbl']
-df = pd.DataFrame(pbl_minor + pbl_pro)
+DB_FILE = 'mystics_db.json'
 
-# 3. Define our Variables
-# X = Independent Variables (DUPR, 3rd Shot Drop %, Kitchen Reset %)
-# Y = Dependent Variable (Overall Draft Score)
-X = df[['p1', 'p2', 'p3']] 
-y = df['score']
+def init_db():
+    if not os.path.exists(DB_FILE):
+        with open(DB_FILE, 'w') as f:
+            json.dump({"masterDB": {}, "boards": {}}, f)
 
-# Add a constant to the model (the y-intercept)
-X = sm.add_constant(X)
+@app.route('/api/database', methods=['GET'])
+def get_database():
+    init_db()
+    with open(DB_FILE, 'r') as f:
+        return jsonify(json.load(f))
 
-# 4. Fit the Ordinary Least Squares (OLS) Regression Model
-print("Running Multiple Linear Regression Model for Pickleball Readiness...\n")
-model = sm.OLS(y, X).fit()
+@app.route('/api/database', methods=['POST'])
+def save_database():
+    data = request.get_json()
+    with open(DB_FILE, 'w') as f:
+        json.dump(data, f)
+    return jsonify({"status": "success", "message": "Database saved."}), 200
 
-# 5. Output the full statistical summary
-print(model.summary())
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
