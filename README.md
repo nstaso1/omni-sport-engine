@@ -1,23 +1,44 @@
-# omni-sport-engine
-# 🌐 Master Omni-Sport Analytics Engine (2026 Edition)
+# 🏀 Mystics Global Sport Analytics: Master Sport Analytics Tool 2026
 
-An elite, multi-platform scouting and live game analytics architecture supporting Baseball, Basketball, Football, Hockey, and Soccer across both Pro and D1 College levels.
+![Sport Analytics](https://img.shields.io/badge/Sport-Analytics-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)
 
-Google Site Link Frontend HTML: [https://sites.google.com/view/mysticsglobalsportanalytics?usp=sharing]([url](https://sites.google.com/view/mysticsglobalsportanalytics?usp=sharing))
+Welcome to the **Master Sport Analytics Tool 2026** repository, built for **Mystics Global Sport Analytics**. This project serves as a comprehensive tool designed to analyze, visualize, and interpret sports data, helping teams, analysts, and fans gain actionable insights into game performance and player statistics.
 
-## 🏗️ System Architecture
-This project utilizes a Hub-and-Spoke architecture with Firebase as the central nervous system:
-* **Frontend (HTML/JS):** A zero-latency, client-side scouting dashboard for logging live plays, evaluating prospect tool-grades, and running auto-bracket tournament simulations (March Madness, CFP, World Cup).
-* **Data Pipeline (Python):** A headless backend script that polls the ESPN/Sportradar APIs and syncs live box scores to the cloud.
-* **Front Office (R Shiny):** A cloud-connected dashboard that reads from Firebase to display global recruiting boards in real-time.
+## 🔗 Quick Links
 
-## 🚀 Features
-* **Omni-Sport Logic:** Custom physics and efficiency algorithms (e.g., KenPom-style Net Efficiency for Basketball, Max EV tracking for Baseball).
-* **Live Webhook Sync:** Push live game data straight to Google Sheets or Firebase.
-* **Auto-Bracket Simulator:** Uses Monte Carlo-style variance and custom chaos factors to predict tournament outcomes.
-* **Data Science Exports:** Export dashboards natively to PDF, JSON, SAS `.sas` files, R scripts, and Python Pandas environments.
+* 🌐 **Live Project Website:** [Mystics Global Sport Analytics](https://sites.google.com/view/mysticsglobalsportanalytics?usp=sharing)
+* 💻 **GitHub Repository:** [Master-Sport-Analytics-Tool-2026](https://github.com/nstaso1/Master-Sport-Analytics-Tool-2026/tree/main)
 
-## 💻 Setup Instructions
-1. **Frontend:** Simply open `frontend_web/index.html` in any modern browser. No build step required. 
-2. **Python:** Run `pip install -r backend_python/requirements.txt`, add your Firebase credentials, and run `python espn_live_sync.py`.
-3. **R Shiny:** Open `backend_r/app.R` in RStudio, install `shiny` and `httr`, and click "Run App".
+---
+
+## 📖 About the Project
+
+The Master Sport Analytics Tool provides an in-depth analytical environment to process global sports metrics. Whether tracking player efficiency, simulating game outcomes, or visualizing historical trends, this tool streamlines complex data into easy-to-understand formats. 
+
+*(Note: Add a brief 1-2 sentence description here detailing the specific sport or leagues your tool focuses on, e.g., WNBA, NBA, Soccer, etc.)*
+
+## ✨ Features
+
+* **Data Visualization:** Interactive graphs and charts showcasing player and team statistics.
+* **Performance Metrics:** Advanced analytics to measure efficiency and game impact.
+* **User-Friendly Dashboard:** Clean interface deployed and showcased via our [web portal](https://sites.google.com/view/mysticsglobalsportanalytics?usp=sharing).
+* **Scalable Architecture:** Built to easily integrate new datasets for the 2026 season and beyond.
+
+## 🛠️ Built With
+
+*(Update these with the actual technologies you used in your project)*
+* [Python](https://www.python.org/) / [R](https://www.r-project.org/) - Data Processing
+* [Pandas](https://pandas.pydata.org/) & [NumPy](https://numpy.org/) - Data Manipulation
+* [Matplotlib](https://matplotlib.org/) / [Seaborn](https://seaborn.pydata.org/) - Visualization
+* [Google Sites](https://sites.google.com/) - Project Showcase
+
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+Make sure you have Python (or your preferred environment) installed. 
+```bash
+# Example for installing required packages
+pip install -r requirements.txt
